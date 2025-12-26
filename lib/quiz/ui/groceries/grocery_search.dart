@@ -31,7 +31,10 @@ class _GrocerySearchState extends State<GrocerySearch> {
   void search() {
     setState(() {
       String input = _searchController.text.toLowerCase();
-    searchHits = dummyGroceryItems
+      if(input.isEmpty) {
+        searchHits = [];
+      }
+      searchHits = dummyGroceryItems
         .where((Grocery grocery) => grocery.name.toLowerCase().contains(input))
         .toList();
     });
@@ -46,6 +49,7 @@ class _GrocerySearchState extends State<GrocerySearch> {
           children: [
 
             TextField(controller: _searchController),
+            searchHits.isEmpty || _searchController.text == ''? Text("Search someting") : 
             Expanded(
               child: ListView.builder(
                 itemCount: searchHits.length,
