@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/groceries/grocery_list.dart';
+import 'package:w13_quiz/quiz/ui/groceries/grocery_detail.dart';
 
 
 void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color.fromARGB(255, 50, 58, 60),
       ),
-      home: const GroceryList(),
+      home: const GroceryDetails(),
     );
   }
 }
